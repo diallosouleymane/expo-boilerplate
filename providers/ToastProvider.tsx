@@ -150,7 +150,7 @@ function Toast({ id, message, type, duration = 3000, onDismiss }: ToastProps & {
   };
 
   const getIcon = () => {
-    const iconSize = 20;
+    const iconSize = 22;
     const iconColor = '#FFFFFF';
 
     switch (type) {
@@ -266,8 +266,8 @@ const styles = StyleSheet.create({
   toast: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md + 2,
+    paddingHorizontal: spacing.lg + 2,
     borderRadius: borderRadius.lg,
     marginHorizontal: spacing.md,
     width: width - spacing.md * 2,
@@ -279,16 +279,16 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   iconContainer: {
-    marginRight: spacing.sm,
+    marginRight: spacing.sm + 2,
   },
   message: {
     flex: 1,
-    fontSize: fontSize.md,
+    fontSize: fontSize.md + 1,
     color: '#FFFFFF',
     fontWeight: '500',
   },
   closeButton: {
-    marginLeft: spacing.sm,
+    marginLeft: spacing.sm + 2,
     padding: spacing.xs,
   },
 });
