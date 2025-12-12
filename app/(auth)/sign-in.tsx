@@ -50,15 +50,15 @@ export default function SignIn() {
       const { data, error } = await authClient.signIn.email({
         email,
         password,
-        callbackURL: '/(demo)',
+      }, {
+        onSuccess: () => {
+          toast.success('Connexion réussie !');
+          router.replace('/(demo)' as any);
+        },
+        onError: (ctx) => {
+          toast.error(ctx.error.message || 'Échec de la connexion');
+        },
       });
-
-      if (error) {
-        toast.error(error.message || 'Échec de la connexion');
-      } else if (data) {
-        toast.success('Connexion réussie !');
-        router.replace('/(demo)' as any);
-      }
     } catch (error) {
       toast.error('Une erreur est survenue');
     } finally {

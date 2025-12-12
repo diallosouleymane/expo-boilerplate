@@ -6,13 +6,13 @@ import { useRouter } from 'expo-router';
 import { ChevronRight, Shield, Sparkles, Zap } from 'lucide-react-native';
 import React, { useRef, useState } from 'react';
 import {
-    Dimensions,
-    FlatList,
-    Pressable,
-    StyleSheet,
-    Text,
-    View,
-    ViewToken,
+  Dimensions,
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  ViewToken,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -64,8 +64,8 @@ export default function Onboarding() {
     }
   };
 
-  const handleFinish = async () => {
-    await completeOnboarding();
+  const handleFinish = () => {
+    completeOnboarding();
     router.replace('/(auth)/sign-in' as any);
   };
 

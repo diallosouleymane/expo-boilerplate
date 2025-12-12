@@ -7,12 +7,12 @@ import { Link, router } from 'expo-router';
 import { Lock, Mail, User } from 'lucide-react-native';
 import React, { useState } from 'react';
 import {
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 
 export default function SignUp() {
@@ -68,15 +68,15 @@ export default function SignUp() {
         email,
         password,
         name,
-        callbackURL: '/(demo)',
+      }, {
+        onSuccess: () => {
+          toast.success('Inscription réussie ! Bienvenue 🎉');
+          router.replace('/(demo)' as any);
+        },
+        onError: (ctx) => {
+          toast.error(ctx.error.message || "Échec de l'inscription");
+        },
       });
-
-      if (error) {
-        toast.error(error.message || "Échec de l'inscription");
-      } else if (data) {
-        toast.success('Inscription réussie ! Bienvenue 🎉');
-        router.replace('/(demo)' as any);
-      }
     } catch (error) {
       toast.error('Une erreur est survenue');
     } finally {
